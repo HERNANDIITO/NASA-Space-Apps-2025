@@ -20,6 +20,7 @@
   "dependencies": {
     "animejs": "^4.2.0",
     "aos": "^2.3.4",
+    "express": "^5.1.0",
     "nodemon": "^3.1.10"
   }
 }
