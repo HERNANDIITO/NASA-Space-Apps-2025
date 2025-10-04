@@ -82,7 +82,7 @@
 #AndSometimes {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
-    top: calc(100vh + 120%);
+    top: calc(100vh + 100%);
     left: 50%;
     font-size: 20px;
     color: rgb(20, 94, 126);

@@ -106,6 +106,13 @@ class DraggableElement {
       });
       
       createStars(centerLeft + this.element.offsetWidth / 2, centerTop + this.element.offsetHeight / 2);
+
+      if (this.element.id == "paraguas") {
+        let imgTierra = document.querySelector('#tierra');
+        imgTierra.src = 'imgs/tierraParaguas.png';
+      }
+      
+
     } else {
       anime({
         targets: this.element,
@@ -163,6 +170,7 @@ new DraggableElement('proton', 'proton-target');
 new DraggableElement('electron', 'electron-target');
 new DraggableElement('neutron', 'neutron-target');
 new DraggableElement('paraguas', 'paraguas-target');
+new DraggableElement('chubasquero', 'chubasquero-target');
 
 // Añade esto al final de tu script.js
 
@@ -194,15 +202,15 @@ window.addEventListener('scroll', () => {
   
   // Aplicar el movimiento VERTICAL (cada coche a diferente velocidad)
   if (protonCar) {
-    protonCar.style.transform = `translateY(${movement * 1.2}px)`; // Más rápido
+    protonCar.style.transform = `translateY(${movement * 1.30}px)`; // Más rápido
   }
   
   if (electronCar) {
-    electronCar.style.transform = `translateY(${movement * 1.0}px)`; // El más rápido
+    electronCar.style.transform = `translateY(${movement * 1.2}px)`; // El más rápido
   }
   
   if (neutronCar) {
-    neutronCar.style.transform = `translateY(${movement * 0.9}px)`; // Más lento
+    neutronCar.style.transform = `translateY(${movement * 1.1}px)`; // Más lento
   }
 });
 
@@ -211,3 +219,4 @@ const cars = document.querySelectorAll('.cars img');
 cars.forEach(car => {
   car.style.transition = 'transform 0.15s ease-out';
 });
+
