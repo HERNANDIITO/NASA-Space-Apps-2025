@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/HERNANDIITO/NASA-Space-Apps-2025/issues"
   },
-  "homepage": "https://github.com/HERNANDIITO/NASA-Space-Apps-2025#readme"
+  "homepage": "https://github.com/HERNANDIITO/NASA-Space-Apps-2025#readme",
+  "dependencies": {
+    "animejs": "^4.2.0",
+    "aos": "^2.3.4"
+  }
 }
