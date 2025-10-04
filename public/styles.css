@@ -5,11 +5,11 @@
 
 .t1 {
     position: absolute;
-    top: 25%;
+    top: 3%;
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 4rem;
+    font-size: 5rem;
     color: rgb(236, 207, 127);
     filter: drop-shadow(0px 5px 10px rgba(12, 2, 72, 0.5));
 }
@@ -18,11 +18,89 @@
     color: #F5926E;
 }
 
-#actuallyTheSun {
+#ActuallyTheSun {
     position: absolute;
-    top: calc(100vh + 25%);
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh);
     left: 50%;
-    transform: translateX(-55%);
+    font-size: 30px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-50%);  
+    text-align: center;
+    width: 70%;  /* AÑADE ESTO */
+    max-width: 900px;  /* AÑADE ESTO */
+}
+
+
+#Electrons {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 20%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-210%);  
+    text-align: center;
+    max-width: 250px;  
+}
+
+#Protons {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 20%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-50%);  
+    text-align: center;
+    max-width: 250px;  
+}
+
+#Neutrons {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 20%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(+110%);  
+    text-align: center;
+    max-width: 250px;  
+}
+
+#Sometimes {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 70%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-50%);  
+    text-align: center;
+}
+
+#AndSometimes {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 120%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-50%);  
+    text-align: center;
+    max-width: 400px;  
+}
+
+#WhenThisHappens {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: calc(100vh + 150%);
+    left: 50%;
+    font-size: 20px;
+    color: rgb(20, 94, 126);
+    transform: translateX(-50%);  
+    text-align: center;
+    max-width: 400px;  
 }
 
 .space {
@@ -36,7 +114,7 @@
 .sun {
     display: flex;
     flex-flow: column;
-    margin-top: 50vh;
+    margin-top: 35vh;
 }
 
 .head {
@@ -55,3 +133,78 @@
     width: 100%;
     height: auto;
 }
+
+#protonesEnergicos {
+    position: absolute;
+    top: calc(100vh + 50%);
+    left: 20%;
+}
+
+#protonEnergico1 {
+    top: 40px;
+    left: -30px;
+}
+
+#protonEnergico2 {
+    top: -40px;
+    left: -60px;
+    transform: scaleX(-1);
+}
+
+#protonEnergico3 {
+    top: -60px;
+    left: 40px;
+}
+
+#protonEnergico4 {
+    top: 80px;
+    left: 60px;
+    transform: scaleX(-1);
+}
+
+#protonEnergico5 {
+    transform: scaleX(-1);
+    top: 0px;
+    left: 100px;
+}
+
+
+.protonEnergico {
+    width: 100px;
+    height: auto;
+    position: absolute;
+}
+
+/* CARS */
+
+.cars {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    height: 2000px;
+}
+
+#protonCar {
+    width: 200px;
+    height: fit-content;
+}
+
+#neutronCar {
+    width: 200px;
+    height: fit-content;
+}
+
+#electronCar {
+    width: 200px;
+    height: fit-content;
+}
+
+/* TIERRA */
+
+#tierra {
+    height: 500px;
+    width: auto;
+    display: block;
+    margin: auto;
+}
+

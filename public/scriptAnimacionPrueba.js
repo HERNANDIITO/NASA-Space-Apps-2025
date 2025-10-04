@@ -13,124 +13,109 @@ anime({
   loopDelay: 1000
 });
 
-// --- Drag & Drop del proton ---
-const proton = document.getElementById('proton');
-const target = document.getElementById('target-zone');
-
-let isDragging = false;
-let offsetX = 0;
-let offsetY = 0;
-
-// Guardamos la posición inicial real del elemento
-const originalLeft = proton.offsetLeft;
-const originalTop = proton.offsetTop;
-
-let placed = false; // bandera que indica si ya está colocado
-
-// --- Drag con mouse ---
-proton.addEventListener('mousedown', (e) => {
-  if (placed) return;
-  isDragging = true;
-  
-  // Calculamos el offset desde donde se hizo clic (respecto al documento)
-  offsetX = e.clientX - proton.offsetLeft;
-  offsetY = e.clientY - proton.offsetTop;
-  
-  proton.style.cursor = 'grabbing';
-});
-
-document.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  
-  // Posicionamos el protón manteniendo el offset donde se hizo clic
-  proton.style.left = (e.clientX - offsetX) + 'px';
-  proton.style.top = (e.clientY - offsetY) + 'px';
-});
-
-document.addEventListener('mouseup', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  proton.style.cursor = 'pointer';
-  checkDrop();
-});
-
-// --- Drag con touch ---
-proton.addEventListener('touchstart', (e) => {
-  if (placed) return;
-  isDragging = true;
-  
-  const touch = e.touches[0];
-  offsetX = touch.clientX - proton.offsetLeft;
-  offsetY = touch.clientY - proton.offsetTop;
-  
-  e.preventDefault();
-});
-
-document.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  
-  const touch = e.touches[0];
-  proton.style.left = (touch.clientX - offsetX) + 'px';
-  proton.style.top = (touch.clientY - offsetY) + 'px';
-  
-  e.preventDefault();
-});
-
-document.addEventListener('touchend', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  checkDrop();
-});
-
-// --- Función para validar si el proton está dentro de la zona ---
-function checkDrop() {
-  const protonRect = proton.getBoundingClientRect();
-  const targetRect = target.getBoundingClientRect();
-
-  // Verificamos si el centro del protón está dentro del recuadro
-  const protonCenterX = protonRect.left + protonRect.width / 2;
-  const protonCenterY = protonRect.top + protonRect.height / 2;
-
-  const inside =
-    protonCenterX > targetRect.left &&
-    protonCenterX < targetRect.right &&
-    protonCenterY > targetRect.top &&
-    protonCenterY < targetRect.bottom;
-
-  if (inside) {
-    // Si está dentro, lo centramos en el recuadro y bloqueamos el arrastre
-    placed = true;
-    proton.style.cursor = 'default';
+// --- Sistema de Drag & Drop reutilizable ---
+class DraggableElement {
+  constructor(elementId, targetId) {
+    this.element = document.getElementById(elementId);
+    this.target = document.getElementById(targetId);
+    this.isDragging = false;
+    this.offsetX = 0;
+    this.offsetY = 0;
+    this.originalLeft = this.element.offsetLeft;
+    this.originalTop = this.element.offsetTop;
+    this.placed = false;
     
-    // Calculamos la posición para centrar el protón en la silueta usando offsetLeft/offsetTop
-    const centerLeft = target.offsetLeft + (target.offsetWidth - proton.offsetWidth) / 2;
-    const centerTop = target.offsetTop + (target.offsetHeight - proton.offsetHeight) / 2;
-
-    anime({
-      targets: proton,
-      left: centerLeft + 'px',
-      top: centerTop + 'px',
-      duration: 300,
-      easing: 'easeOutQuad'
+    this.init();
+  }
+  
+  init() {
+    // Mouse events
+    this.element.addEventListener('mousedown', (e) => this.onDragStart(e.clientX, e.clientY));
+    document.addEventListener('mousemove', (e) => {
+      if (this.isDragging) this.onDragMove(e.clientX, e.clientY);
     });
+    document.addEventListener('mouseup', () => this.onDragEnd());
     
-    // ¡Crear estrellitas!
-    createStars(centerLeft + proton.offsetWidth / 2, centerTop + proton.offsetHeight / 2);
-  } else {
-    // Si no está dentro, vuelve a su posición original
-    anime({
-      targets: proton,
-      left: originalLeft + 'px',
-      top: originalTop + 'px',
-      duration: 500,
-      easing: 'easeOutElastic(1, .5)'
+    // Touch events
+    this.element.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      this.onDragStart(touch.clientX, touch.clientY);
+      e.preventDefault();
     });
+    document.addEventListener('touchmove', (e) => {
+      if (this.isDragging) {
+        const touch = e.touches[0];
+        this.onDragMove(touch.clientX, touch.clientY);
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('touchend', () => this.onDragEnd());
+  }
+  
+  onDragStart(clientX, clientY) {
+    if (this.placed) return;
+    this.isDragging = true;
+    this.offsetX = clientX - this.element.offsetLeft;
+    this.offsetY = clientY - this.element.offsetTop;
+    this.element.style.cursor = 'grabbing';
+  }
+  
+  onDragMove(clientX, clientY) {
+    this.element.style.left = (clientX - this.offsetX) + 'px';
+    this.element.style.top = (clientY - this.offsetY) + 'px';
+  }
+  
+  onDragEnd() {
+    if (!this.isDragging) return;
+    this.isDragging = false;
+    this.element.style.cursor = 'pointer';
+    this.checkDrop();
+  }
+  
+  checkDrop() {
+    const elementRect = this.element.getBoundingClientRect();
+    const targetRect = this.target.getBoundingClientRect();
+
+    const elementCenterX = elementRect.left + elementRect.width / 2;
+    const elementCenterY = elementRect.top + elementRect.height / 2;
+
+    const inside =
+      elementCenterX > targetRect.left &&
+      elementCenterX < targetRect.right &&
+      elementCenterY > targetRect.top &&
+      elementCenterY < targetRect.bottom;
+
+    if (inside) {
+      this.placed = true;
+      this.element.style.cursor = 'default';
+      
+      const centerLeft = this.target.offsetLeft + (this.target.offsetWidth - this.element.offsetWidth) / 2;
+      const centerTop = this.target.offsetTop + (this.target.offsetHeight - this.element.offsetHeight) / 2;
+
+      anime({
+        targets: this.element,
+        left: centerLeft + 'px',
+        top: centerTop + 'px',
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+      
+      createStars(centerLeft + this.element.offsetWidth / 2, centerTop + this.element.offsetHeight / 2);
+    } else {
+      anime({
+        targets: this.element,
+        left: this.originalLeft + 'px',
+        top: this.originalTop + 'px',
+        duration: 500,
+        easing: 'easeOutElastic(1, .5)'
+      });
+    }
   }
 }
 
 // --- Función para crear estrellitas ---
 function createStars(x, y) {
-  const numStars = 15; // Número de estrellitas
+  const numStars = 15;
   
   for (let i = 0; i < numStars; i++) {
     const star = document.createElement('div');
@@ -144,7 +129,6 @@ function createStars(x, y) {
     
     document.body.appendChild(star);
     
-    // Animación de cada estrellita
     const angle = (Math.PI * 2 * i) / numStars;
     const distance = Math.random() * 100 + 50;
     const endX = x + Math.cos(angle) * distance;
@@ -160,8 +144,17 @@ function createStars(x, y) {
       duration: 1000 + Math.random() * 500,
       easing: 'easeOutExpo',
       complete: () => {
-        star.remove(); // Eliminamos la estrellita cuando termina la animación
+        star.remove();
       }
     });
   }
 }
+
+// --- Inicializar elementos arrastrables ---
+// Protón
+new DraggableElement('proton', 'target-zone');
+
+// Añade más elementos aquí:
+new DraggableElement('electron', 'electron-target');
+// new DraggableElement('neutron', 'neutron-target');
+// new DraggableElement('tierra', 'tierra-target');

@@ -4,30 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pegatinas.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DynaPuff:wght@400..700&family=Modak&family=Schoolbell&family=Shrikhand&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="script.js" ></script>
     <title>Document</title>
 </head>
 <body class="space">
     <h1 
         data-aos="zoom-in-up"
-        data-aos-delay="1000"
-        class="t1">Do you know what <span data-aos="zoom-in-up" data-aos-delay="1500" id="spaceWeather">space weather</span> is?</h1>
+        data-aos-delay="500"
+        class="t1">Do you know what <span data-aos="zoom-in-up" data-aos-delay="200" id="spaceWeather">space weather</span> is?</h1>
 
-    <div id="actuallyTheSun">
-        <p data-aos="fade-down" data-aos-delay="250">Actually, the Sun is like a big swimming pool where protons, electrons, and neutrons dance and play.</p>
-        <p data-aos="fade-down" data-aos-delay="750">Our friends the electrons are very fast and love to move around,</p>    
-        <p data-aos="fade-down" data-aos-delay="1000">the protons are full of energy and always want to party, </p>    
-        <p data-aos="fade-down" data-aos-delay="1250">while the neutrons are very calm.</p>    
+    <div id="ActuallyTheSun">
+        <p data-aos="fade-down" data-aos-delay="150">Actually, the Sun is like a big swimming pool where protons, electrons, and neutrons dance and play.</p>
     </div>
+
+    <div id="Electrons">      
+        <p data-aos="fade-down" data-aos-delay="550">Our friends the electrons are very fast and love to move around,</p>    
+    </div>
+
+    <div id="Protons">         
+        <p data-aos="fade-down" data-aos-delay="750">the protons are full of energy and always want to party, </p>     
+    </div>
+
+    <div id="Neutrons">         
+        <p data-aos="fade-down" data-aos-delay="1000">while the neutrons are very calm.</p>    
+    </div>
+
+    <div id="Sometimes">
+        <p data-aos="fade-down" data-aos-delay="150">Sometimes the particles throw a party</p>
+        <p data-aos="fade-down" data-aos-delay="150">in the pool where they sing and dance.</p>
+    </div>
+
+    <div id="AndSometimes">
+        <p data-aos="fade-down" data-aos-delay="150">And sometimes the party gets out of control and the sun starts to get dizzy from all the movement.</p>
+    </div>
+
+    <div id="WhenThisHappens">
+        <p data-aos="fade-down" data-aos-delay="150">When this happens, the sun gets really angry and ends the party in one go.</p>
+    </div>
+
+
+    <div id="protonesEnergicos">
+    <!-- Silueta del protón -->
+    <img id="proton-target" 
+        src="./imgs/intProton.png" 
+        alt="Silueta del protón"
+        data-aos-delay="500">
+    
+    <img id="proton" 
+        src="./imgs/proton.png" 
+        alt="Proton"
+        data-aos-delay="500">
+
+    <img id="electron-target" 
+        src="./imgs/intElectron.png" 
+        alt="Silueta del electrón"
+        data-aos-delay="500">
+    
+    <img id="electron" 
+        src="./imgs/electron.png" 
+        alt="Electrón"
+        data-aos-delay="500">
+
+    
+    <img id="neutron-target" 
+        src="./imgs/intNeutron.png" 
+        alt="Silueta del neutrón"
+        data-aos-delay="500">
+    
+    <img id="neutron" 
+        src="./imgs/neutron.png" 
+        alt="Neutrón"
+        data-aos-delay="500">   
+    </div>
+    
     <div class="sun">
         <img class="head" src="./imgs/cabezaSol.png" alt="">
         <div class="body"></div>
         <img class="legs" src="./imgs/piernasSol.png" alt="">
     </div>
+
+    <div class="cars">
+        <img id="protonCar"   src="imgs/protonCar.png"   alt="">
+        <img id="electronCar" src="imgs/electronCar.png" alt="">
+        <img id="neutronCar"  src="imgs/neutronCar.png"  alt="">
+    </div>
+
+
+    <img id="paraguas-target" 
+        src="./imgs/intParaguas.png" 
+        alt="Silueta del paraguas">
+
+    <img id="paraguas" 
+        src="./imgs/paraguas.png" 
+        alt="Paraguas">
+    <img id="tierra" src="imgs/tierraEnfadada.png" alt="">
 </body>
 </html>

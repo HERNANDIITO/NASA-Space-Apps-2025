@@ -19,7 +19,7 @@ body {
 
 header {
     background: rgb(11, 55, 75);
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -27,14 +27,14 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background: transparent;
     font-family: 'Arbutus Slab', serif;
     color: #e7cf8c;
 }
 
 .logo {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     color: #e7cf8c;
     background: transparent;
@@ -50,7 +50,7 @@ nav {
 }
 
 .text-xl{
-    font-size: 130px;
+    font-size: 90px;
 }
 
 .nav-links {
@@ -68,7 +68,7 @@ nav {
     text-decoration: none;
     color: #e7cf8c;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 20px;
     transition: color 0.3s;
     background: transparent;
     font-family: 'Arbutus Slab', bold;

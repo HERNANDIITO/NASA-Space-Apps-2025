@@ -18,21 +18,42 @@
         <img class="legs" src="./imgs/piernasSol.png" alt="">
     </div>
 
-    <!-- Zona donde se puede soltar el proton (ahora es una imagen) -->
+    <!-- PROTÓN -->
+    <!-- Silueta del protón -->
     <img id="target-zone" 
          src="./imgs/protonSilueta.png" 
          alt="Silueta del protón"
-         style="
-         position:absolute; 
-         top:400px; 
-         left:400px; 
-         width:100px; 
-         pointer-events: none;">
-
-    <!-- Proton fuera de .sun -->
+         style="position:absolute; top:400px; left:400px; width:100px; pointer-events:none; opacity:0.5;">
+    
+    <!-- Protón arrastrable -->
     <img id="proton" 
          src="./imgs/proton.png" 
          alt="Proton"
          style="position:absolute; top:200px; left:200px; width:100px; cursor:pointer;">
+
+    <!-- EJEMPLO: ELECTRÓN (descomenta para usar) -->
+
+    <img id="electron-target" 
+         src="./imgs/electronSilueta.png" 
+         alt="Silueta del electrón"
+         style="position:absolute; top:400px; left:600px; width:80px; pointer-events:none; opacity:0.5;">
+    
+    <img id="electron" 
+         src="./imgs/electron.png" 
+         alt="Electrón"
+         style="position:absolute; top:200px; left:400px; width:80px; cursor:pointer;">
+
+    <!-- EJEMPLO: NEUTRÓN (descomenta para usar) -->
+    <!--
+    <img id="neutron-target" 
+         src="./imgs/neutronSilueta.png" 
+         alt="Silueta del neutrón"
+         style="position:absolute; top:400px; left:800px; width:100px; pointer-events:none; opacity:0.5;">
+    
+    <img id="neutron" 
+         src="./imgs/neutron.png" 
+         alt="Neutrón"
+         style="position:absolute; top:200px; left:600px; width:100px; cursor:pointer;">
+    -->
 </body>
 </html>
