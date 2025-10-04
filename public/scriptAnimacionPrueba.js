@@ -21,8 +21,9 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
-const originalLeft = 200; // posición inicial
-const originalTop = 200;
+// Guardamos la posición inicial real del elemento
+const originalLeft = proton.offsetLeft;
+const originalTop = proton.offsetTop;
 
 let placed = false; // bandera que indica si ya está colocado
 
@@ -31,10 +32,9 @@ proton.addEventListener('mousedown', (e) => {
   if (placed) return;
   isDragging = true;
   
-  // Calculamos el offset desde donde se hizo clic
-  const rect = proton.getBoundingClientRect();
-  offsetX = e.clientX - rect.left;
-  offsetY = e.clientY - rect.top;
+  // Calculamos el offset desde donde se hizo clic (respecto al documento)
+  offsetX = e.clientX - proton.offsetLeft;
+  offsetY = e.clientY - proton.offsetTop;
   
   proton.style.cursor = 'grabbing';
 });
@@ -42,7 +42,7 @@ proton.addEventListener('mousedown', (e) => {
 document.addEventListener('mousemove', (e) => {
   if (!isDragging) return;
   
-  // Posicionamos el protón centrado en el cursor
+  // Posicionamos el protón manteniendo el offset donde se hizo clic
   proton.style.left = (e.clientX - offsetX) + 'px';
   proton.style.top = (e.clientY - offsetY) + 'px';
 });
@@ -60,9 +60,8 @@ proton.addEventListener('touchstart', (e) => {
   isDragging = true;
   
   const touch = e.touches[0];
-  const rect = proton.getBoundingClientRect();
-  offsetX = touch.clientX - rect.left;
-  offsetY = touch.clientY - rect.top;
+  offsetX = touch.clientX - proton.offsetLeft;
+  offsetY = touch.clientY - proton.offsetTop;
   
   e.preventDefault();
 });
@@ -103,9 +102,9 @@ function checkDrop() {
     placed = true;
     proton.style.cursor = 'default';
     
-    // Calculamos la posición para centrar el protón en el recuadro
-    const centerLeft = targetRect.left + (targetRect.width - protonRect.width) / 2;
-    const centerTop = targetRect.top + (targetRect.height - protonRect.height) / 2;
+    // Calculamos la posición para centrar el protón en la silueta usando offsetLeft/offsetTop
+    const centerLeft = target.offsetLeft + (target.offsetWidth - proton.offsetWidth) / 2;
+    const centerTop = target.offsetTop + (target.offsetHeight - proton.offsetHeight) / 2;
 
     anime({
       targets: proton,
