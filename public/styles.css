@@ -75,18 +75,18 @@
     left: 50%;
     font-size: 20px;
     color: rgb(20, 94, 126);
-    transform: translateX(-50%);  
+    transform: translateX(-150%);  
     text-align: center;
 }
 
 #AndSometimes {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
-    top: calc(100vh + 100%);
+    top: calc(100vh + 70%);
     left: 50%;
     font-size: 20px;
     color: rgb(20, 94, 126);
-    transform: translateX(-50%);  
+    transform: translateX(+50%);  
     text-align: center;
     max-width: 400px;  
 }
@@ -94,7 +94,7 @@
 #WhenThisHappens {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
-    top: calc(100vh + 150%);
+    top: calc(100vh + 122%);
     left: 50%;
     font-size: 20px;
     color: rgb(20, 94, 126);
@@ -208,3 +208,24 @@
     margin: auto;
 }
 
+/* FIESTA */
+#fiesta {
+    position:absolute;
+    top:1265px;
+    left:75px;
+    width:630px;
+}
+
+#solMareado {
+    position:absolute;
+    top:1265px;
+    left:1000px;
+    width:300px;
+}
+
+#campoVanessoide {
+    position:absolute;
+    top:3750px;
+    left:300px;
+    width:700px;
+}
