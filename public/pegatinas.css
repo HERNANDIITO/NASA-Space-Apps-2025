@@ -56,6 +56,7 @@
     width:400px;
     pointer-events:none;
     opacity:0.5;
+    z-index: 2; 
 }
 
 #paraguas {
@@ -64,6 +65,7 @@
     left:50px;
     width:400px;
     cursor:pointer;
+    z-index: 2; 
 }
 
 #chubasquero-target {
@@ -73,6 +75,7 @@
     width:650px;
     pointer-events:none;
     opacity:0.5;
+    z-index: 2; 
 }
 
 #chubasquero {
@@ -81,4 +84,5 @@
     left:900px;
     width:630px;
     cursor:pointer;
+    z-index: 2; 
 }

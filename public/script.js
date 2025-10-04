@@ -18,6 +18,52 @@ anime({
   loopDelay: 1000
 });
 
+// --- Sistema de verificación de elementos colocados ---
+const placedElements = {
+  paraguas: false,
+  chubasquero: false
+};
+
+function checkAllProtectionPlaced() {
+  if (placedElements.paraguas && placedElements.chubasquero) {
+    // Ocultar paraguas, chubasquero, campo magnético, coches y sus targets
+    anime({
+      targets: ['#paraguas', '#paraguas-target', '#chubasquero', '#chubasquero-target', '#campoVanessoide', '#protonCar', '#electronCar', '#neutronCar'],
+      opacity: 0,
+      scale: 0,
+      duration: 800,
+      easing: 'easeInBack',
+      complete: () => {
+        document.getElementById('paraguas').style.display = 'none';
+        document.getElementById('paraguas-target').style.display = 'none';
+        document.getElementById('chubasquero').style.display = 'none';
+        document.getElementById('chubasquero-target').style.display = 'none';
+        document.getElementById('campoVanessoide').style.display = 'none';
+        document.getElementById('protonCar').style.display = 'none';
+        document.getElementById('electronCar').style.display = 'none';
+        document.getElementById('neutronCar').style.display = 'none';
+      }
+    });
+    
+    // Mostrar nubes, pingüinos y teléfono con animación
+    setTimeout(() => {
+      const elementos = ['#nube', '#nube1', '#pingus', '#telefono'];
+      elementos.forEach(el => {
+        document.querySelector(el).style.display = 'block';
+      });
+      
+      anime({
+        targets: elementos,
+        opacity: [0, 1],
+        scale: [0.5, 1],
+        duration: 1000,
+        easing: 'easeOutElastic(1, .5)',
+        delay: anime.stagger(200)
+      });
+    }, 400);
+  }
+}
+
 // --- Sistema de Drag & Drop reutilizable ---
 class DraggableElement {
   constructor(elementId, targetId) {
@@ -110,8 +156,21 @@ class DraggableElement {
       if (this.element.id == "paraguas") {
         let imgTierra = document.querySelector('#tierra');
         imgTierra.src = 'imgs/tierraParaguas.png';
+        placedElements.paraguas = true;
+        
+        let imgCampo = document.querySelector('#campoVanessoide');
+        if (imgCampo) {
+          imgCampo.style.display = 'block'; 
+          imgCampo.src = 'imgs/campo.png'; 
+        }
       }
-      
+
+      if (this.element.id == "chubasquero") {
+        placedElements.chubasquero = true;
+      }
+
+      // Verificar si ambos elementos están colocados
+      checkAllProtectionPlaced();
 
     } else {
       anime({
@@ -172,8 +231,6 @@ new DraggableElement('neutron', 'neutron-target');
 new DraggableElement('paraguas', 'paraguas-target');
 new DraggableElement('chubasquero', 'chubasquero-target');
 
-// Añade esto al final de tu script.js
-
 // --- Animación de coches con scroll ---
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
@@ -219,4 +276,3 @@ const cars = document.querySelectorAll('.cars img');
 cars.forEach(car => {
   car.style.transition = 'transform 0.15s ease-out';
 });
-

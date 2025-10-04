@@ -187,16 +187,19 @@
 #protonCar {
     width: 200px;
     height: fit-content;
+    display: 'none'
 }
 
 #neutronCar {
     width: 200px;
     height: fit-content;
+    display: 'none'
 }
 
 #electronCar {
     width: 200px;
     height: fit-content;
+    display: 'none'
 }
 
 /* TIERRA */
@@ -228,4 +231,72 @@
     top:3750px;
     left:300px;
     width:700px;
+}
+
+#campoVanessoide {
+  display: none;
+}
+
+#solPatada {
+    position:absolute;
+    top:1600px;
+    left:620px;
+    width:400px;
+}
+
+#nube {
+    position:absolute;
+    top:3700px;
+    left:800px;
+    width:500px;
+    display: none;
+    z-index: 2; 
+}
+
+#nube1 {
+    position:absolute;
+    top:4000px;
+    left:100px;
+    width:500px;
+    display: none;
+    z-index: 2; 
+}
+
+#telefono {
+    position:absolute;
+    top:4025px;
+    left:200px;
+    width:280px;
+    display: none;
+    z-index: 2; 
+}
+
+#pingus {
+    position:absolute;
+    top:3765px;
+    left:920px;
+    width:280px;
+    border-radius: 30px;
+    display: none;
+    z-index: 2; 
+}
+
+#luna {
+    position: absolute;
+    top: 4250px;
+    left: 50%;
+    width: 100px;
+    transform-origin: center;
+    animation: orbitarTierra 20s linear infinite;
+    z-index: 1; 
+}
+
+
+@keyframes orbitarTierra {
+    0% {
+        transform: translate(-50%, 0) rotate(0deg) translateX(350px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, 0) rotate(360deg) translateX(350px) rotate(-360deg);
+    }
 }
