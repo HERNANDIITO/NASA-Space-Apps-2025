@@ -1,11 +1,11 @@
-import { animate } from 'https://esm.sh/animejs';
+import { animate, onScroll } from 'https://esm.sh/animejs';
 
 console.log("AA")
 
 animate(
     ".sun",
     {
-        scale: 2,
-        loop: true
+        scale: 1.2,
+        autoplay: onScroll({ sync: true })
     }
 )

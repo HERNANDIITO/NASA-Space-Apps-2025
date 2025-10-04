@@ -3,13 +3,11 @@
 }
 
 .space {
-    background-color: rgb(31, 30, 65);
+    background-color: rgb(20, 94, 126);
     height: 100%;
 }
 
-.sun {
-    background-color: rgb(255, 196, 0);
-    border-radius: 100%;
-    width: 256px;
-    height: 256px;
+.sun > img {
+    width: 100vw;
+    margin-top: 50vh;
 }
