@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    font-family: 'Arbutus Slab', serif;
+}
+
+.t1 {
+    position: absolute;
+    top: 25%;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.space {
+    background-color: rgb(20, 94, 126);
+    background-image: url(imgs/fondoEstrellas.png);
+    background-size: 800px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.sun {
+    display: flex;
+    flex-flow: column;
+    margin-top: 50vh;
+}
+
+.head {
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+.body {
+    padding: 15px;
+    background-image: url(imgs/cuerpoSol.png);
+}
+
+.legs {
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
