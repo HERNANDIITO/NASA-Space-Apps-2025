@@ -113,6 +113,9 @@ function checkDrop() {
       duration: 300,
       easing: 'easeOutQuad'
     });
+    
+    // ¡Crear estrellitas!
+    createStars(centerLeft + proton.offsetWidth / 2, centerTop + proton.offsetHeight / 2);
   } else {
     // Si no está dentro, vuelve a su posición original
     anime({
@@ -121,6 +124,44 @@ function checkDrop() {
       top: originalTop + 'px',
       duration: 500,
       easing: 'easeOutElastic(1, .5)'
+    });
+  }
+}
+
+// --- Función para crear estrellitas ---
+function createStars(x, y) {
+  const numStars = 15; // Número de estrellitas
+  
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElement('div');
+    star.innerHTML = '⭐';
+    star.style.position = 'absolute';
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+    star.style.fontSize = Math.random() * 20 + 15 + 'px';
+    star.style.pointerEvents = 'none';
+    star.style.zIndex = '1000';
+    
+    document.body.appendChild(star);
+    
+    // Animación de cada estrellita
+    const angle = (Math.PI * 2 * i) / numStars;
+    const distance = Math.random() * 100 + 50;
+    const endX = x + Math.cos(angle) * distance;
+    const endY = y + Math.sin(angle) * distance;
+    
+    anime({
+      targets: star,
+      left: endX + 'px',
+      top: endY + 'px',
+      opacity: [1, 0],
+      scale: [0, 1.5],
+      rotate: Math.random() * 720 - 360,
+      duration: 1000 + Math.random() * 500,
+      easing: 'easeOutExpo',
+      complete: () => {
+        star.remove(); // Eliminamos la estrellita cuando termina la animación
+      }
     });
   }
 }
