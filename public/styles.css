@@ -18,13 +18,20 @@
     color: #F5926E;
 }
 
+
+p {
+    font-family: 'Arbutus Slab', bold;
+    text-align: center;
+}
+
+
 #ActuallyTheSun {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
     top: calc(100vh);
     left: 50%;
     font-size: 30px;
-    color: rgb(20, 94, 126);
+    color: rgb(20, 94, 126) !important;
     transform: translateX(-50%);  
     text-align: center;
     width: 70%;  /* AÑADE ESTO */
@@ -38,7 +45,7 @@
     top: calc(100vh + 20%);
     left: 50%;
     font-size: 20px;
-    color: rgb(20, 94, 126);
+    color: rgb(20, 94, 126) !important;
     transform: translateX(-210%);  
     text-align: center;
     max-width: 250px;  
@@ -93,7 +100,6 @@
 
 #WhenThisHappens {
     position: absolute;
-    font-family: 'Arbutus Slab', bold;
     top: calc(100vh + 122%);
     left: 50%;
     font-size: 20px;
@@ -250,7 +256,7 @@
     left:800px;
     width:500px;
     display: none;
-    z-index: 2; 
+    z-index: 2;
 }
 
 #nube1 {
@@ -299,4 +305,66 @@
     100% {
         transform: translate(-50%, 0) rotate(360deg) translateX(350px) rotate(-360deg);
     }
+}
+
+#speed {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: 3000px;
+    left: 200px;
+    max-width: 400px;
+    font-size: 30px;
+    color: rgb(236, 207, 127) !important;
+    transform: translateX(-50%);  
+    text-align: center;
+    width: 70%;  /* AÑADE ESTO */
+}
+
+#Thesun {
+    position: absolute;
+    top:2100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(236, 207, 127);
+    font-size: 20px;
+    
+}
+
+#telefonoTexto {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: 4400px;
+    left: 233px;
+    font-size: 30px;
+    color: rgb(236, 207, 127) !important;
+    transform: translateX(-50%);  
+    text-align: center;
+    width: 70%;  /* AÑADE ESTO */
+    max-width: 400px;  /* AÑADE ESTO */
+}
+
+#aurora {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: 4100px;
+    left: calc(100% - 233px);
+    max-width: 400px;
+    font-size: 30px;
+    color: rgb(236, 207, 127) !important;
+    transform: translateX(-50%);  
+    text-align: center;
+    width: 70%;  /* AÑADE ESTO */
+}
+
+#llegar {
+    position: absolute;
+    font-family: 'Arbutus Slab', bold;
+    top: 3300px;
+    left: calc(100% - 233px);
+    max-width: 400px;
+    font-size: 30px;
+    color: rgb(236, 207, 127) !important;
+    transform: translateX(-50%);  
+    text-align: center;
+    width: 70%;  /* AÑADE ESTO */
 }

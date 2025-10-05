@@ -28,15 +28,13 @@ function checkAllProtectionPlaced() {
   if (placedElements.paraguas && placedElements.chubasquero) {
     // Ocultar paraguas, chubasquero, campo magnético, coches y sus targets
     anime({
-      targets: ['#paraguas', '#paraguas-target', '#chubasquero', '#chubasquero-target', '#campoVanessoide', '#protonCar', '#electronCar', '#neutronCar'],
+      targets: ['#paraguas-target', '#chubasquero-target', '#campoVanessoide', '#protonCar', '#electronCar', '#neutronCar'],
       opacity: 0,
       scale: 0,
       duration: 800,
       easing: 'easeInBack',
       complete: () => {
-        document.getElementById('paraguas').style.display = 'none';
         document.getElementById('paraguas-target').style.display = 'none';
-        document.getElementById('chubasquero').style.display = 'none';
         document.getElementById('chubasquero-target').style.display = 'none';
         document.getElementById('campoVanessoide').style.display = 'none';
         document.getElementById('protonCar').style.display = 'none';
@@ -44,6 +42,9 @@ function checkAllProtectionPlaced() {
         document.getElementById('neutronCar').style.display = 'none';
       }
     });
+
+    let imgTierra = document.querySelector('#tierra');
+    imgTierra.src = 'imgs/tierraFeliz.png';
     
     // Mostrar nubes, pingüinos y teléfono con animación
     setTimeout(() => {
