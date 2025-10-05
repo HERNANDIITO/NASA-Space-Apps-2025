@@ -333,27 +333,29 @@ p {
 #telefonoTexto {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
-    top: 4400px;
-    left: 233px;
+    top: 4360px;
+    left: 85px;
     font-size: 30px;
     color: rgb(236, 207, 127) !important;
     transform: translateX(-50%);  
     text-align: center;
     width: 70%;  /* AÑADE ESTO */
     max-width: 400px;  /* AÑADE ESTO */
+    opacity: 0;
 }
 
 #aurora {
     position: absolute;
     font-family: 'Arbutus Slab', bold;
-    top: 4100px;
-    left: calc(100% - 233px);
+    top: 4055px;
+    left: 1000px;
     max-width: 400px;
     font-size: 30px;
     color: rgb(236, 207, 127) !important;
     transform: translateX(-50%);  
     text-align: center;
     width: 70%;  /* AÑADE ESTO */
+    opacity: 0;
 }
 
 #llegar {

@@ -48,7 +48,7 @@ function checkAllProtectionPlaced() {
     
     // Mostrar nubes, pingüinos y teléfono con animación
     setTimeout(() => {
-      const elementos = ['#nube', '#nube1', '#pingus', '#telefono'];
+      const elementos = ['#telefonoTexto', '#aurora', '#nube', '#nube1', '#pingus', '#telefono'];
       elementos.forEach(el => {
         document.querySelector(el).style.display = 'block';
       });
